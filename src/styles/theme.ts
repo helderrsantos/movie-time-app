@@ -21,4 +21,5 @@ const GlobalStyle: DefaultTheme = {
   },
 };
 
+
 export default GlobalStyle;

@@ -6,7 +6,6 @@ export default function App() {
             <Home />
     )
 }
-console.log(App())
       
 registerRootComponent(App);
 

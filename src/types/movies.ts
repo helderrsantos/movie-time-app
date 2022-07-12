@@ -12,5 +12,6 @@ export interface IMoviesDTO {
     title: string,
     video: boolean,
     vote_average: number,
-    vote_count: number
+    vote_count: number,
+    category: string
 }

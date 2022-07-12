@@ -1,28 +1,45 @@
 import styled from 'styled-components/native';
+import GlobalStyle from '../../styles/theme';
 
 export const Container = styled.View`
+  background-color: ${GlobalStyle.colors.secondary100};
   flex: 1;
-  background-color: ${({theme}) => theme.colors.secondary100};
-  align-items: center;
 `;
 
 export const MovieCard = styled.TouchableOpacity`
-  background-color: ${({theme}) => theme.colors.secondary70 };
-  border-radius: 8px;
-  width: 360px;
-  margin: 8px;
+  background-color: ${GlobalStyle.colors.secondary90};
+  width: 180px;
+  height: 270px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const MovieImage = styled.Image`
-  flex: 2;
-  height: 156px;
-  overflow: hidden;
+  height: 220px;
+  width: 160px
+  border-radius: 10px; 
 `;
 
 export const MovieTitle = styled.Text`
-  font-size: 18px;
+  font-size: 12px;
   font-weight: bold;
-  text-align: center;
-  padding: 12px;
-  color: ${ ({theme}) => theme.colors.heading };
+  padding: 8px;
+  color: ${GlobalStyle.colors.heading};
+`;
+
+export const TitleHeader = styled.Text`
+  font-size: 30px;
+  background-color: ${GlobalStyle.colors.secondary100};
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+  width: 100%;
+  color: ${GlobalStyle.colors.heading};
+`;
+
+export const CategoryMovie = styled.Text`
+  font-size: 20px;
+  padding-left: 10px;
+  color: ${GlobalStyle.colors.heading};
 `;

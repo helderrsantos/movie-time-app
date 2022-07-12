@@ -6,7 +6,9 @@ import {
   Container,
   MovieCard,
   MovieImage,
-  MovieTitle
+  MovieTitle,
+  TitleHeader,
+  CategoryMovie,
 } from './styles';
 
 interface IHomeViewProps {
@@ -18,16 +20,25 @@ export function HomeView({ movies, onPressMovie }: IHomeViewProps) {
 
   return (
     <Container>
-      <FlatList 
+      <TitleHeader>
+        <Text>
+          Movie Time
+        </Text>
+      </TitleHeader>
+      <CategoryMovie>
+          Lançamentos
+        </CategoryMovie>
+       <FlatList
+        horizontal
         data={movies}
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => {
 
-          return (
+          return (            
             <MovieCard onPress={() => onPressMovie(item.title)} >
-              <MovieImage source={{ uri: `https://image.tmdb.org/t/p/w500${item.backdrop_path}` }}/>
-              <MovieTitle>{item.title}</MovieTitle>
-            </MovieCard>
+              <MovieImage source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}/> 
+              <MovieTitle>{item.title}</MovieTitle>  
+              </MovieCard>             
           )
         }}
       />
