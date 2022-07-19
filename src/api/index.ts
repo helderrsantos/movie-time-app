@@ -9,7 +9,9 @@ const api = axios.create({
       },
       params: {
         language: 'pt-BR',
+        page: 1
       },
+      
 });
 
 export {api};

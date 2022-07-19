@@ -14,7 +14,7 @@ export function Details() {
 
   const getMovies = async () => {
     try {
-      categories.forEach( async (category) => {
+      categories.map( async (category) => {
         const result = await getMoviesByCategory(category);
         const dataByCategory = {
           [category]: result
@@ -26,6 +26,7 @@ export function Details() {
     } catch (error) {
       // TODO: Tratar erros de requisicao API
       console.warn(error)
+    } finally {
     }
 }
 
@@ -34,5 +35,8 @@ useEffect(() => {
 } , []);
 
 
-  return <DetailsView movies={movies} onPressMovie={() => {}} />;
+  return <DetailsView movies={movies}/>;
 }
+
+
+

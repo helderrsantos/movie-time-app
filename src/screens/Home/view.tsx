@@ -1,7 +1,8 @@
 import React from 'react';
 import { IMovies } from '.';
-import { ActivityIndicator, SafeAreaView } from 'react-native';
 import { FlatList, ScrollView, Text } from 'react-native';
+import { ActivityIndicator, SafeAreaView } from 'react-native';
+
 
 import {
   Container,
@@ -36,7 +37,7 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           <TitleHeader>
             <Text>
               Movie Time
-            </Text>
+            </Text> 
           </TitleHeader>
 
       <CategoryMovie>

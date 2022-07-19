@@ -3,78 +3,40 @@ import GlobalStyle from '../../styles/theme';
 
 export const Container = styled.View`
   background-color: ${GlobalStyle.colors.secondary100};
-  flex: 1;
-`;
+  width:100%;
+  `;
 
-export const MovieCard = styled.TouchableOpacity`
+export const MovieCard = styled.View`
   background-color: ${GlobalStyle.colors.secondary100};
-  width: 150px;
-  height: 270px;
-  margin-left: 11px;
+  width: 100%;
+  height: 390px;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 `;
 
 export const MovieImage = styled.Image`
-  height: 230px;
-  width: 145px
-  border-radius: 10px; 
+  height: 190px;
+  width: 100%;
 `;
 
 export const MovieTitle = styled.Text`
-  font-size: 11px;
-  font-weight: bold;
-  padding-top: 4px;
-  color: ${GlobalStyle.colors.heading};
-`;
-
-export const MovieCardPrev = styled.TouchableOpacity`
-  background-color: ${GlobalStyle.colors.secondary100};
-  width: 120px;
-  height: 250px;
-  margin-left: 12px;
-  justify-content: center;
-  margin-bottom: 15px;
-`;
-
-export const MovieImagePrev = styled.Image`
-  height: 200px;
-  width: 115px;
-  border-radius: 10px; 
-`;
-
-export const MovieTitlePrev = styled.Text`
-  font-size: 11px;
-  font-weight: bold;
-  padding-top: 4px;
-  color: ${GlobalStyle.colors.heading};
-`;
-
-export const TitleHeader = styled.Text`
-  font-size: 30px;
-  background-color: ${GlobalStyle.colors.secondary100};
-  margin-top: 10px;
-  font-weight: bold;
-  text-align: left;
-  padding: 10px;
-  width: 100%;
-  color: ${GlobalStyle.colors.heading};
-`;
-
-export const CategoryMovie = styled.Text`
   font-size: 20px;
-  padding-left: 2px;
-  margin: 10px;
+  text-align: center;
   font-weight: bold;
+  padding: 10px;
   color: ${GlobalStyle.colors.heading};
 `;
+export const TextVote = styled.Text`
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: '#fc9803';
+`;
 
-export const TextDate = styled.Text`
-  font-size: 8px;
+export const TextOverview = styled.Text`
+  font-size: 12px;
+  text-align: justify;
+  margin: 10px;
   color: ${GlobalStyle.colors.highlight};
 `;
 
-export const TextDatePrev = styled.Text`
-  font-size: 8px;
-  color: ${GlobalStyle.colors.highlight};
-`

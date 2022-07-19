@@ -13,6 +13,7 @@ export function Home() {
   const [loading, setLoading] = useState(true);
   const categories = [ 'now_playing', 'popular', 'top_rated', 'upcoming'  ];
 
+
   const getMovies = async () => {
     try {
       categories.forEach( async (category) => {
@@ -35,7 +36,6 @@ export function Home() {
 useEffect(() => {
   getMovies()
 } , []);
-
 
   return <HomeView movies={movies} loading={loading} onPressMovie={() => {}} />;
 }
