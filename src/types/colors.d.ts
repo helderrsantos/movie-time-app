@@ -18,7 +18,6 @@ declare module 'styled-components' {
       highlight: string,
       heading: string,
       line: string,
-      on: string,
     },
   }
 }
