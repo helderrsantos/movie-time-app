@@ -3,16 +3,17 @@ import { IMoviesDTO } from '../../types/movies';
 
 import { getMoviesByCategory } from '../../services/movies';
 import { HomeView } from './view';
+import { ParamList } from '../../types/navigation';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export interface IMovies { 
   [key: string] : IMoviesDTO[]
 }
 
-export function Home() {
+export function Home({navigation}: NativeStackScreenProps<ParamList, 'Home'>) {
   const [movies, setMovies] = useState<IMovies>();
   const [loading, setLoading] = useState(true);
   const categories = [ 'now_playing', 'popular', 'top_rated', 'upcoming'  ];
-
 
   const getMovies = async () => {
     try {
@@ -37,5 +38,10 @@ useEffect(() => {
   getMovies()
 } , []);
 
-  return <HomeView movies={movies} loading={loading} onPressMovie={() => {}} />;
+  return (
+    <HomeView 
+      movies={movies} 
+      loading={loading} 
+      onPressMovie={(movie) => navigation.navigate('Details', {movie})} />);
 }
+

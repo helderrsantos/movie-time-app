@@ -1,18 +1,18 @@
-import React from 'react';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Home } from '../screens/Home';
 import { Details } from '../screens/Details';
 
-const Stack = createStackNavigator();
+const { Navigator, Screen} = createNativeStackNavigator();
 
 function Routes() {
     return (
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Details" component={Details} />
-        </Stack.Navigator>
+        <Navigator initialRouteName="Home" screenOptions={{headerShown:false}}>
+          <Screen name="Home" component={Home} />
+          <Screen name="Details" component={Details} />
+        </Navigator>
       </NavigationContainer>
     );
   }

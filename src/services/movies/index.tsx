@@ -5,7 +5,7 @@ import { IMoviesDTO } from "../../types/movies";
 export const getMoviesByCategory = async (category: string) => {
   try {
     const response = await api.get(`/movie/${category}`);
-    const results: IMoviesDTO[] =  response.data.results
+    const results: IMoviesDTO[] =  response.data.results;
 
     return results;
   } catch (error) {

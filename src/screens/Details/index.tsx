@@ -1,41 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { IMoviesDTO } from '../../types/movies';
-
-import { getMoviesByCategory } from '../../services/movies';
+import { ParamList } from '../../types/navigation';
 import { DetailsView } from './view';
+import  GlobalStyle  from '../../styles/theme'
 
 export interface IMovies { 
   [key: string] : IMoviesDTO[]
 }
 
-export function Details() {
-  const [movies, setMovies] = useState<IMovies>();
-  const categories = [ 'now_playing', 'popular', 'top_rated', 'upcoming'  ];
+type IDetailsProps = NativeStackScreenProps<ParamList, 'Details'>
 
-  const getMovies = async () => {
-    try {
-      categories.map( async (category) => {
-        const result = await getMoviesByCategory(category);
-        const dataByCategory = {
-          [category]: result
-        }
+export function Details({route}: IDetailsProps) {
+  const { movie } = route.params;
 
-        setMovies((prevState) => ({...prevState, ...dataByCategory}))
-
-      });
-    } catch (error) {
-      // TODO: Tratar erros de requisicao API
-      console.warn(error)
-    } finally {
-    }
-}
-
-useEffect(() => {
-  getMovies()
-} , []);
-
-
-  return <DetailsView movies={movies}/>;
+  return <DetailsView movie={movie}/>;
 }
 
 

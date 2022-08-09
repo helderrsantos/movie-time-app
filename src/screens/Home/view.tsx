@@ -1,44 +1,44 @@
 import React from 'react';
 import { IMovies } from '.';
-import { FlatList, ScrollView, Text } from 'react-native';
-import { ActivityIndicator, SafeAreaView } from 'react-native';
-
+import { Feather } from '@expo/vector-icons';
+import { IMoviesDTO } from '../../types/movies';
+import { ActivityIndicator } from 'react-native';
+import { FlatList, ScrollView, Alert } from 'react-native';
+import { MovieCard } from '../../componentes/MovieCard';
 
 import {
   Container,
-  MovieCard,
-  MovieImage,
-  MovieTitle,
-  MovieCardPrev,
-  MovieImagePrev,
-  MovieTitlePrev,
   TitleHeader,
+  TextColor,
   CategoryMovie,
-  TextDate,
-  TextDatePrev,
+  TitleHeaderInfo,
 } from './styles';
 
-interface IHomeViewProps {
+export interface IHomeViewProps {
   movies?: IMovies,
   loading: boolean,
-  onPressMovie: (titulo: string) => void;
+  onPressMovie: (movie: IMoviesDTO) => void;
 } 
 
 export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
 
   return (
-  <SafeAreaView
-    style={{backgroundColor:'#111212'}}>
+    <Container>
       <ScrollView
       showsVerticalScrollIndicator={false}
       >
-
-      <Container>
+        <TitleHeaderInfo>
           <TitleHeader>
-            <Text>
-              Movie Time
-            </Text> 
+              Movie<TextColor>Time</TextColor>
           </TitleHeader>
+
+          <Feather 
+            name='search'
+            size={24}
+            color='white'
+            onPress={()=>Alert.alert('Desculpe o transtorno, em breve estaremos com a busca funcionando')}
+          />
+        </TitleHeaderInfo>
 
       <CategoryMovie>
         Em Alta
@@ -53,16 +53,13 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           data={movies?.['now_playing']}
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}   
-          renderItem={({ item }) => {
-
-          return (            
-            <MovieCard onPress={() => onPressMovie(item.title)} >
-              <MovieImage source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}/> 
-              <MovieTitle>{item.title}</MovieTitle>
-              <TextDate>Lançamento: {item.release_date}</TextDate>  
-              </MovieCard>             
-          )
-        }}
+          renderItem={({ item }) => ( 
+            <MovieCard
+              width={160}
+              height={240}
+              onPress={() => onPressMovie(item)}
+              data={item}     
+            /> )}
         />
         </>
       }
@@ -79,16 +76,13 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           data={movies?.['upcoming']}
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}  
-          renderItem={({ item }) => {
-
-          return (            
-            <MovieCardPrev onPress={() => onPressMovie(item.title)} >
-              <MovieImagePrev source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}/> 
-              <MovieTitlePrev>{item.title}</MovieTitlePrev>  
-              <TextDatePrev>Lançamento: {item.release_date}</TextDatePrev>  
-              </MovieCardPrev>             
-          )
-        }}
+          renderItem={({ item }) => (
+            <MovieCard
+              width={160}
+              height={240}
+              onPress={() => onPressMovie(item)}
+              data={item}     
+          /> )}
         />
         </>
       }
@@ -105,16 +99,13 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           data={movies?.['top_rated']}
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}  
-          renderItem={({ item }) => {
-
-          return (            
-            <MovieCardPrev onPress={() => onPressMovie(item.title)} >
-               <MovieImagePrev source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}/> 
-              <MovieTitlePrev>{item.title}</MovieTitlePrev>  
-              <TextDatePrev>Lançamento: {item.release_date}</TextDatePrev>  
-               </MovieCardPrev>             
-          )
-        }}
+          renderItem={({ item }) => (
+            <MovieCard
+              width={160}
+              height={240}
+              onPress={() => onPressMovie(item)}
+              data={item}     
+          /> )}
         />
         </>
       }
@@ -131,21 +122,18 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           data={movies?.['popular']}
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}  
-          renderItem={({ item }) => {
-
-          return (            
-            <MovieCardPrev onPress={() => onPressMovie(item.title)} >
-              <MovieImagePrev source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}/> 
-              <MovieTitlePrev>{item.title}</MovieTitlePrev>  
-              <TextDatePrev>Lançamento: {item.release_date}</TextDatePrev>  
-              </MovieCardPrev>             
-           )
-         }}
+          renderItem={({ item }) => ( 
+            <MovieCard
+              width={160}
+              height={240}
+              onPress={() => onPressMovie(item)}
+              data={item}     
+          /> )}
         />
         </>
       }
-        </Container>
+       
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   );
 }
