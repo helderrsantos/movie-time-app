@@ -1,23 +1,13 @@
-import React from "react";
-import LottieView from 'lottie-react-native';
-import { useNavigation } from "@react-navigation/native";
+import React , {useEffect} from "react";
+import { SplashView } from "./view";
+import { ParamList } from "../../types/navigation";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import {
-    Container,
-  } from './styles';
+export function Splash({navigation}: NativeStackScreenProps<ParamList, 'Splash'>){
 
-
-export function Splash(){
-    const navigation = useNavigation()
+useEffect(() => {
+    setTimeout(() => navigation.navigate('Home'), 3000);
+},[]);
     
-    return(
-        <Container>
-            <LottieView 
-                source={require('../../assets/splash.json')} 
-                autoPlay
-                loop={true} 
-                speed={1}
-            />   
-        </Container>
-    )
+    return <SplashView />;
 }
