@@ -11,7 +11,7 @@ function Routes() {
     return (
       <NavigationContainer>
         <Navigator initialRouteName="Splash" screenOptions={{headerShown:false}}>
-          <Screen name="Splash" component={Splash}/>
+          <Screen name="Splash" component={Splash} />
           <Screen name="Home" component={Home} />
           <Screen name="Details" component={Details} />
         </Navigator>

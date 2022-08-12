@@ -26,7 +26,7 @@ export const GoBack = styled.View`
 `;
 
 export const MovieCard = styled.View`
-  background:${GlobalStyle.colors.overlay}
+  background-color:${GlobalStyle.colors.overlay}
 `;
 
 export const MovieImage = styled.Image`

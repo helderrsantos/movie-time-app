@@ -1,9 +1,8 @@
 import React from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { DetailsView } from './view';
 import { IMoviesDTO } from '../../types/movies';
 import { ParamList } from '../../types/navigation';
-import { DetailsView } from './view';
-import  GlobalStyle  from '../../styles/theme'
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export interface IMovies { 
   [key: string] : IMoviesDTO[]

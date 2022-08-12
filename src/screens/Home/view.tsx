@@ -4,7 +4,8 @@ import { Feather } from '@expo/vector-icons';
 import { IMoviesDTO } from '../../types/movies';
 import { ActivityIndicator } from 'react-native';
 import { FlatList, ScrollView, Alert } from 'react-native';
-import { MovieCard } from '../../componentes/MovieCard';
+import { MovieCardMain } from '../../componentes/MovieCardMain';
+import { MovieCardSmall} from '../../componentes/MovieCardSmall';
 
 import {
   Container,
@@ -54,9 +55,7 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}   
           renderItem={({ item }) => ( 
-            <MovieCard
-              width={160}
-              height={240}
+            <MovieCardMain
               onPress={() => onPressMovie(item)}
               data={item}     
             /> )}
@@ -77,9 +76,7 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}  
           renderItem={({ item }) => (
-            <MovieCard
-              width={160}
-              height={240}
+            <MovieCardSmall
               onPress={() => onPressMovie(item)}
               data={item}     
           /> )}
@@ -100,9 +97,7 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}  
           renderItem={({ item }) => (
-            <MovieCard
-              width={160}
-              height={240}
+            <MovieCardSmall
               onPress={() => onPressMovie(item)}
               data={item}     
           /> )}
@@ -123,9 +118,7 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}  
           renderItem={({ item }) => ( 
-            <MovieCard
-              width={160}
-              height={240}
+            <MovieCardSmall
               onPress={() => onPressMovie(item)}
               data={item}     
           /> )}

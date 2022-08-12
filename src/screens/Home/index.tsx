@@ -42,6 +42,7 @@ useEffect(() => {
     <HomeView 
       movies={movies} 
       loading={loading} 
-      onPressMovie={(movie) => navigation.navigate('Details', {movie})} />);
+      onPressMovie={(movie) => navigation.navigate('Details', {movie})}
+    />);
 }
 
