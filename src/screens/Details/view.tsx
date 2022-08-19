@@ -23,17 +23,14 @@ interface IDetailsViewProps {
 
 export function DetailsView({ movie }: IDetailsViewProps) {
   const navigation = useNavigation();
-  const {secondary30} = GlobalStyle.colors;
+  const {overlay, heading} = GlobalStyle.colors;
   
   return (
       <Container>
         <ScrollView
           showsVerticalScrollIndicator={false}
         >         
-          <MovieCard>  
-            <LinearGradient
-                colors={["#ffffff","#ffffff00","#ffffff00"]}>
-
+          <MovieCard> 
             	<HeaderDetails>
             		<GoBack>
              			<Entypo 
@@ -54,20 +51,23 @@ export function DetailsView({ movie }: IDetailsViewProps) {
 								</GoBack>	
           		</HeaderDetails>
 
-                <MovieImage resizeMode='cover' source={{ uri: `https://image.tmdb.org/t/p/w500${movie?.backdrop_path}` }} /> 
-            
-                <MovieTitle>
-                  {movie.title}
-                </MovieTitle>
+                <LinearGradient
+                  colors={[heading,overlay]}
+                >
+                  <MovieImage source={{ uri: `https://image.tmdb.org/t/p/w500${movie?.backdrop_path}` }} /> 
+                
+                  <MovieTitle>
+                   {movie.title}
+                  </MovieTitle>
+                
+                </LinearGradient>
 
                 <TextVote>
                   {movie.vote_average}   ⭐ ⭐ ⭐ ⭐ ⭐
                 </TextVote>
-
                 <TextOverview>
                   {movie.overview}
                 </TextOverview> 
-              </LinearGradient>
 
             </MovieCard> 
           </ScrollView>   
