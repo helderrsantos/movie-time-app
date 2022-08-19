@@ -4,8 +4,8 @@ import { Feather } from '@expo/vector-icons';
 import { IMoviesDTO } from '../../types/movies';
 import { ActivityIndicator } from 'react-native';
 import { FlatList, ScrollView, Alert } from 'react-native';
-import { MovieCardMain } from '../../componentes/MovieCardMain';
-import { MovieCardSmall} from '../../componentes/MovieCardSmall';
+import { MovieCardMain } from '../../components/MovieCardMain';
+import { MovieCardSmall} from '../../components/MovieCardSmall';
 
 import {
   Container,
@@ -57,7 +57,8 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           renderItem={({ item }) => ( 
             <MovieCardMain
               onPress={() => onPressMovie(item)}
-              data={item}     
+              data={item} 
+              size={'large'}
             /> )}
         />
         </>
