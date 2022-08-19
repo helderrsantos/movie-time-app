@@ -5,9 +5,9 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 export function Splash({navigation}: NativeStackScreenProps<ParamList, 'Splash'>){
 
-useEffect(() => {
-    setTimeout(() => navigation.navigate('Home'), 3000);
-},[]);
+//useEffect(() => {
+//    setTimeout(() => navigation.navigate('Home'), 2500);
+//},[]);
     
     return <SplashView />;
 }

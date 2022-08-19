@@ -1,5 +1,6 @@
 import React from "react";
 import LottieView from 'lottie-react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import {
     Container,
@@ -7,15 +8,17 @@ import {
 
 
 export function SplashView(){
+    const navigation = useNavigation()
     
     return(
         <Container>
                 <LottieView 
                     source={require('../../assets/splash.json')}
-                    loop={true}  
+             
                     autoPlay
-                    speed={1}  
-                    style={{width:220}}                
+                    loop={false}
+                    duration={3000}
+                    onAnimationFinish={() => navigation.navigate('Home')}
                 />   
         </Container>
     )
