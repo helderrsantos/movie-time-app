@@ -13,27 +13,28 @@ import {
 export interface IMovieCardProps {
   onPress:() => void;
   data: IMoviesDTO;
+  size: 'large' | 'small';
 }
 
-export function MovieCardSmall ({ data, ...rest } : IMovieCardProps){
+export function MovieCard ({ data, size, ...rest } : IMovieCardProps){
   const uri = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
 
   const date = new Date(data.release_date)
-  const timeZone = 'Europe/Berlin'
-  const zonedDate = utcToZonedTime(date, timeZone)
-  const output = format(zonedDate, 'dd.MMM.yyyy')
+  const zonedDate = utcToZonedTime(date, 'Europe/Berlin')
+  const formattedDate = format(zonedDate, 'dd.MMM.yyyy')
     
   return(
-    <Card {...rest}>
+    <Card size={size}{...rest}>
       <ImageWrapper>
         <MovieImage 
           source={{ uri }}
+          size={size}
         />
       </ImageWrapper>
 
       <MovieInfoWrapper>
         <MovieTitle> {data.title} </MovieTitle>
-        <TextDate> {output} </TextDate> 
+        <TextDate> {formattedDate} </TextDate> 
       </MovieInfoWrapper>  
     </Card>
 

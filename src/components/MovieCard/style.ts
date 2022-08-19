@@ -6,15 +6,15 @@ interface ISize {
 }
 
 export const Card = styled.TouchableOpacity<ISize>`
-width: ${(props) => props.size ? 120 : 140}px;
+width: ${(props) => props.size === "large" ? 140 : 120}px;
 margin: 0 0 0 15px;
 border-radius: 10px;
 overflow: hidden;
 `;
 
 export const MovieImage = styled.Image<ISize>`
-height: ${(props) => props.size ? 230 : 200}px;
-width: ${(props) => props.size ? 140 : 120}px;
+height: ${(props) => props.size === "large" ? 230 : 200}px;
+width: ${(props) => props.size === "large" ? 140 : 120}px;
 `;
 
 export const ImageWrapper = styled.View`

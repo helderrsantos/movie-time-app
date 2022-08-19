@@ -4,8 +4,7 @@ import { Feather } from '@expo/vector-icons';
 import { IMoviesDTO } from '../../types/movies';
 import { ActivityIndicator } from 'react-native';
 import { FlatList, ScrollView, Alert } from 'react-native';
-import { MovieCardMain } from '../../components/MovieCardMain';
-import { MovieCardSmall} from '../../components/MovieCardSmall';
+import { MovieCard } from '../../components/MovieCard';
 
 import {
   Container,
@@ -55,73 +54,61 @@ export function HomeView({ movies, loading, onPressMovie }: IHomeViewProps) {
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}   
           renderItem={({ item }) => ( 
-            <MovieCardMain
+            <MovieCard
               onPress={() => onPressMovie(item)}
               data={item} 
               size={'large'}
             /> )}
         />
-        </>
-      }
+      
       <CategoryMovie>
         Lançamentos
       </CategoryMovie>
-      { 
-        loading 
-        ? <ActivityIndicator/> 
-        : 
-        <>
+      
         <FlatList
           horizontal
           data={movies?.['upcoming']}
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}  
           renderItem={({ item }) => (
-            <MovieCardSmall
+            <MovieCard
               onPress={() => onPressMovie(item)}
               data={item}     
+              size={'small'}
           /> )}
         />
-        </>
-      }
+      
         <CategoryMovie>
           Mais Votados
         </CategoryMovie>
-      { 
-        loading 
-        ? <ActivityIndicator/> 
-        : 
-        <>
+      
         <FlatList
           horizontal
           data={movies?.['top_rated']}
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}  
           renderItem={({ item }) => (
-            <MovieCardSmall
+            <MovieCard
               onPress={() => onPressMovie(item)}
-              data={item}     
+              data={item}  
+              size={'small'}
           /> )}
         />
-        </>
-      }
+      
       <CategoryMovie>
         Popular
       </CategoryMovie>
-      { 
-        loading 
-        ? <ActivityIndicator/> 
-        : 
-        <>
+      
         <FlatList
           horizontal
           data={movies?.['popular']}
           keyExtractor={(item) => String(item.id)}
           showsHorizontalScrollIndicator={false}  
           renderItem={({ item }) => ( 
-            <MovieCardSmall
+            <MovieCard
               onPress={() => onPressMovie(item)}
               data={item}     
+              size={'small'}
           /> )}
         />
         </>
