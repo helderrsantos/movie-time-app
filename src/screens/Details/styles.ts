@@ -10,9 +10,9 @@ export const HeaderDetails = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 16px;  
   position: absolute;
-  z-index:1;
+  z-index:3;
   width: 100%;
 `;
 
@@ -22,15 +22,17 @@ export const GoBack = styled.View`
   border-radius: 8px;
   width: 40px;
   height: 40px;
-  background: rgba(0, 0, 0, 0.3);
+  background: ${GlobalStyle.colors.goBack};
 `;
 
 export const MovieCard = styled.View`
-  background-color:${GlobalStyle.colors.overlay}
+  background-color:${GlobalStyle.colors.overlay};
+  z-index:2;  
 `;
 
 export const MovieImage = styled.Image`
   height: 260px;
+  z-index: 1;
 `;
 
 export const MovieTitle = styled.Text`

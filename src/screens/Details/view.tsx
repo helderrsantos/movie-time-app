@@ -28,47 +28,44 @@ export function DetailsView({ movie }: IDetailsViewProps) {
   return (
       <Container>
         <ScrollView
-          showsVerticalScrollIndicator={false}
-        >         
-          <MovieCard> 
-            	<HeaderDetails>
-            		<GoBack>
-             			<Entypo 
-                		name="chevron-left" 
-                		size={30} 
-                		color={GlobalStyle.colors.heading} 
-                		onPress={() => navigation.goBack()}
-              		/>  
-            		</GoBack>
-
-								<GoBack>
-            			<Feather
-              			name="bookmark" 
-              			size={24} 
-              			color={GlobalStyle.colors.heading} 
-              			onPress={()=> Alert.alert('Salvo')}
-            			/>       
-								</GoBack>	
-          		</HeaderDetails>
-
+          showsVerticalScrollIndicator={false}>         
+            <MovieCard> 
                 <LinearGradient
                   colors={[heading,overlay]}
                 >
-                  <MovieImage source={{ uri: `https://image.tmdb.org/t/p/w500${movie?.backdrop_path}` }} /> 
+            	  <HeaderDetails>
+            	  	<GoBack>
+             	  		<Entypo 
+                  		name="chevron-left" 
+                  		size={30} 
+                  		color={GlobalStyle.colors.heading} 
+                  		onPress={() => navigation.goBack()}
+                		/>  
+            	  	</GoBack>
+							  	<GoBack>
+            	  		<Feather
+                			name="bookmark" 
+                			size={24} 
+                			color={GlobalStyle.colors.heading} 
+                			onPress={()=> Alert.alert('Salvo')}
+            	  		/>       
+							  	</GoBack>	
+          		  </HeaderDetails>
+              
+                  <MovieImage 
+                  resizeMode='cover'
+                  source={{ uri: `https://image.tmdb.org/t/p/w500${movie?.backdrop_path}` }} /> 
                 
                   <MovieTitle>
                    {movie.title}
                   </MovieTitle>
-                
                 </LinearGradient>
-
                 <TextVote>
                   {movie.vote_average}   ⭐ ⭐ ⭐ ⭐ ⭐
                 </TextVote>
                 <TextOverview>
                   {movie.overview}
                 </TextOverview> 
-
             </MovieCard> 
           </ScrollView>   
       </Container>
