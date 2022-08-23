@@ -13,6 +13,8 @@ const GlobalStyle: DefaultTheme = {
     secondary40: '#1D2766',
     secondary30: '#1E1E1E',
 
+    goBack:'rgba(0, 0, 0, 0.3)',
+
     overlay: '#171821',
     highlight: '#ABB1CC',
     heading: '#DDE3F0',

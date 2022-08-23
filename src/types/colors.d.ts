@@ -13,6 +13,8 @@ declare module 'styled-components' {
       secondary50: string, 
       secondary40: string, 
       secondary30: string, 
+
+      goBack: string,
      
       overlay: string,
       highlight: string,
