@@ -23,7 +23,7 @@ export const TitleHeader = styled.Text`
 export const TextColor = styled.Text`
   font-size: 30px;
   font-weight: bold;
-  color: red;
+  color: ${GlobalStyle.colors.primary};
 `;
 
 export const CategoryMovie = styled.Text`

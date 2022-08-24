@@ -27,12 +27,10 @@ export const GoBack = styled.View`
 
 export const MovieCard = styled.View`
   background-color:${GlobalStyle.colors.overlay};
-  z-index:2;  
 `;
 
 export const MovieImage = styled.Image`
-  height: 260px;
-  z-index: 1;
+  height: 260px;  
 `;
 
 export const MovieTitle = styled.Text`
