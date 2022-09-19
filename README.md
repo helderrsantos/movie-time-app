@@ -9,4 +9,8 @@ Sinopse dos filmes, avaliação dos usuários e navegação entre páginas.
 - React Native
 - Typescript
 - Styled Components
+- Expo
+- Axios
+- Linear Gradiente
+
 
