@@ -1,33 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { IMoviesDTO } from '../../types/movies';
-import { Alert } from 'react-native';
-import { api } from '../../api';
 
+import { getMoviesByCategory } from '../../services/movies';
 import { HomeView } from './view';
+import { ParamList } from '../../types/navigation';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export function Home() {
-  const [movies, setMovies] = useState<IMoviesDTO[]>([]);
+export interface IMovies { 
+  [key: string] : IMoviesDTO[]
+}
 
-  const getMovies = async (category:string) => {
+export function Home({navigation}: NativeStackScreenProps<ParamList, 'Home'>) {
+  const [movies, setMovies] = useState<IMovies>();
+  const [loading, setLoading] = useState(true);
+  const categories = [ 'now_playing', 'popular', 'top_rated', 'upcoming'  ];
+
+  const getMovies = async () => {
     try {
-      const response = await api.get(`/movie/${category}?api_key=44aa380a1c46378725fcf04e2aabae3a&language=en-US&page=1`);
-      const responseJson = await response.data;
+      categories.forEach( async (category) => {
+        const result = await getMoviesByCategory(category);
+        const dataByCategory = {
+          [category]: result
+        }
 
-      setMovies(responseJson.results)  
+        setMovies((prevState) => ({...prevState, ...dataByCategory}))
 
+      });
     } catch (error) {
+      // TODO: Tratar erros de requisicao API
       console.warn(error)
+    } finally {
+      setLoading(false);
     }
 }
 
-  const onPressMovie = (titulo: string) => {
-    Alert.alert(`O nome desse é: ${titulo}`)
-  }
-
 useEffect(() => {
-  getMovies('now_playing');
+  getMovies()
 } , []);
 
-
-  return <HomeView movies={movies} onPressMovie={onPressMovie} />;
+  return (
+    <HomeView 
+      movies={movies} 
+      loading={loading} 
+      onPressMovie={(movie) => navigation.navigate('Details', {movie})}
+    />);
 }
+

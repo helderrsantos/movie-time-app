@@ -2,44 +2,34 @@ import styled from 'styled-components/native';
 import GlobalStyle from '../../styles/theme';
 
 export const Container = styled.View`
-  background-color: ${GlobalStyle.colors.secondary100};
-  flex: 1;
+  background-color: ${GlobalStyle.colors.overlay};
+  flex:1;
+  justify-content: space-around;
 `;
 
-export const MovieCard = styled.TouchableOpacity`
-  background-color: ${GlobalStyle.colors.secondary90};
-  width: 180px;
-  height: 270px;
-  justify-content: center;
+export const TitleHeaderInfo = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-`;
-
-export const MovieImage = styled.Image`
-  height: 220px;
-  width: 160px
-  border-radius: 10px; 
-`;
-
-export const MovieTitle = styled.Text`
-  font-size: 12px;
-  font-weight: bold;
-  padding: 8px;
-  color: ${GlobalStyle.colors.heading};
+  padding: 16px;
 `;
 
 export const TitleHeader = styled.Text`
   font-size: 30px;
-  background-color: ${GlobalStyle.colors.secondary100};
-  margin-top: 20px;
   font-weight: bold;
-  text-align: left;
-  padding: 10px;
-  width: 100%;
   color: ${GlobalStyle.colors.heading};
+`;
+
+export const TextColor = styled.Text`
+  font-size: 30px;
+  font-weight: bold;
+  color: ${GlobalStyle.colors.primary};
 `;
 
 export const CategoryMovie = styled.Text`
   font-size: 20px;
-  padding-left: 10px;
+  margin: 0 0 10px 16px;
+  font-weight: bold;
   color: ${GlobalStyle.colors.heading};
 `;
+
