@@ -11,6 +11,6 @@ Sinopse dos filmes, avaliação dos usuários e navegação entre páginas.
 - Styled Components
 - Expo
 - Axios
-- Linear Gradiente
+
 
 
